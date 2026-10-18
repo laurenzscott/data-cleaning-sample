@@ -1,0 +1,26 @@
+CHANGE LOG - raw-export.csv -> cleaned-export.csv
+
+Rows in: 9612    Rows out: 9341
+
+RULES APPLIED   (a row can be touched by several rules)
+  1  Dates normalised to YYYY-MM-DD ............ 6608 rows
+  2  Amounts converted from text to numbers .... 8477 rows
+  3  Company names unified ..................... 4696 rows
+  4  Status lower-cased ........................ 6271 rows
+  5  E-mail trimmed and lower-cased ............ 6258 rows
+  6  Empty rows dropped ........................ 259 rows
+  7  Exact duplicate rows merged ............... 12 rows
+
+AGREED BEFORE THE RUN
+  slash dates read as MM/DD/YYYY, dotted dates as DD.MM.YYYY
+  one currency in this file, so only the format was changed
+
+LEFT UNTOUCHED ON PURPOSE
+  0 value(s) could not be read without guessing - left empty, not invented
+
+CHECKS RUN ON THE RESULT
+  9341 rows, 6 columns
+  all values in invoice_date are valid YYYY-MM-DD dates
+  all values in amount parse as numbers
+  sum of amount = 11,556,507.40  (compare with your own total)
+  before cleaning only 2593 of 9612 rows could be summed at all

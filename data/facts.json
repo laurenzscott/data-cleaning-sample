@@ -1,0 +1,71 @@
+{
+ "rows_in": 9612,
+ "rows_out": 9341,
+ "counts": {
+  "dates": 6608,
+  "amounts": 8477,
+  "company": 4696,
+  "status": 6271,
+  "email": 6258,
+  "empty": 259,
+  "dupes": 12
+ },
+ "names_raw": 18,
+ "names_clean": 10,
+ "raw_sumable": 2593,
+ "unresolved": 0,
+ "total": "11,556,507.40",
+ "cols": 6,
+ "examples": {
+  "company": [
+   "Castle and Byrne",
+   "Castle & Byrne"
+  ],
+  "dates": [
+   "1 April 2024",
+   "2024-04-01"
+  ],
+  "amounts": [
+   "1.045,00 \u20ac",
+   "1045.00"
+  ],
+  "email": [
+   "INFO@client1.COM",
+   "info@client1.com"
+  ],
+  "status": [
+   "Paid",
+   "paid"
+  ]
+ },
+ "rules": [
+  [
+   "Dates normalised to YYYY-MM-DD",
+   6608
+  ],
+  [
+   "Amounts converted from text to numbers",
+   8477
+  ],
+  [
+   "Company names unified",
+   4696
+  ],
+  [
+   "Status lower-cased",
+   6271
+  ],
+  [
+   "E-mail trimmed and lower-cased",
+   6258
+  ],
+  [
+   "Empty rows dropped",
+   259
+  ],
+  [
+   "Exact duplicate rows merged",
+   12
+  ]
+ ]
+}
