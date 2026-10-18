@@ -1,0 +1,45 @@
+name: Clean the export
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["**.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clean
+  cancel-in-progress: false
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run the tests
+        run: python tests/test_clean.py
+
+      - name: Generate the messy export
+        run: python make_messy.py
+
+      - name: Clean it
+        run: python clean.py
+
+      - name: Commit data/ back to the repository
+        run: |
+          git config user.name "cleaning-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes in data/ - nothing to commit."
+            exit 0
+          fi
+          git commit -m "Update data/ from cleaning run"
+          git push
