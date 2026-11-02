@@ -1,5 +1,9 @@
 # data-cleaning-sample
 
+[![Clean data](https://github.com/laurenzscott/data-cleaning-sample/actions/workflows/clean.yml/badge.svg)](https://github.com/laurenzscott/data-cleaning-sample/actions/workflows/clean.yml)
+
+![Before and after: messy invoice export and the cleaned table with its change log](docs/02-data-cleaning.png)
+
 Cleaning a messy invoice export with fixed, written-down rules and a change log.
 
 This is a sample on generated data, not a client project.
